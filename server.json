@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.gaufire/usemo-mcp",
+  "title": "UseMo",
+  "description": "Create videos, images, and branded content using your UseMo workspace and credits.",
+  "version": "0.1.0",
+  "websiteUrl": "https://usemo.com",
+  "repository": {
+    "url": "https://github.com/gaufire/usemo-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.usemo.com/mcp"
+    }
+  ]
+}

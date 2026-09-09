@@ -1,0 +1,11 @@
+{
+  "name": "usemo",
+  "version": "0.1.0",
+  "description": "Create videos, images, and branded content with UseMo.",
+  "author": { "name": "UseMo", "email": "support@usemo.com" },
+  "homepage": "https://usemo.com",
+  "repository": "https://github.com/gaufire/usemo-mcp",
+  "license": "MIT",
+  "keywords": ["usemo", "mcp", "video", "image-generation", "content-generation"],
+  "mcpServers": "mcp.json"
+}
