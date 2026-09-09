@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">UseMo logo</title>
+  <desc id="desc">A white U monogram on a violet to blue rounded-square background.</desc>
+  <defs>
+    <linearGradient id="background" x1="72" y1="52" x2="438" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="182" y1="150" x2="339" y2="366" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E0E7FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#background)"/>
+  <path d="M160 142c0-17.7 14.3-32 32-32s32 14.3 32 32v144c0 29.8 14.5 52 32 52s32-22.2 32-52V142c0-17.7 14.3-32 32-32s32 14.3 32 32v144c0 68-39.5 116-96 116s-96-48-96-116V142Z" fill="url(#mark)"/>
+  <circle cx="383" cy="139" r="26" fill="#C4B5FD"/>
+</svg>

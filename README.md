@@ -1,5 +1,7 @@
 # UseMo MCP
 
+![UseMo logo](assets/usemo-logo.svg)
+
 UseMo brings video, image, and branded-content creation into MCP clients. It
 connects to your own UseMo workspace through OAuth; generation uses your
 workspace's existing credits.
