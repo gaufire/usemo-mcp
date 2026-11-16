@@ -1,0 +1,22 @@
+{
+  "name": "usemo",
+  "displayName": "UseMo",
+  "version": "0.2.0",
+  "description": "Create brand-grounded videos, images, ad campaigns, social posts, SEO articles, and PPTX decks from Claude Code.",
+  "author": {
+    "name": "UseMo",
+    "url": "https://usemo.com"
+  },
+  "homepage": "https://usemo.com/agents",
+  "repository": "https://github.com/gaufire/usemo-mcp",
+  "license": "MIT",
+  "keywords": [
+    "usemo",
+    "mcp",
+    "video",
+    "talking-head",
+    "digital-twin",
+    "image-generation",
+    "presentations"
+  ]
+}

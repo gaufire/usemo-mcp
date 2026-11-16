@@ -1,0 +1,52 @@
+name: Validate plugin & MCP manifests
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON, TOML, YAML, skills, and secret hygiene
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          import tomllib
+
+          root = Path(".")
+          json_files = sorted(root.rglob("*.json"))
+          assert len(json_files) >= 11, f"expected >=11 json manifests, got {len(json_files)}"
+          for p in json_files:
+              data = json.loads(p.read_text(encoding="utf-8"))
+              raw = json.dumps(data)
+              assert "usm_" not in raw or "usm_..." in raw, f"secret-like key in {p}"
+
+          server = json.loads((root / "server.json").read_text(encoding="utf-8"))
+          assert server["name"] == "io.github.gaufire/usemo-mcp"
+          assert len(server["description"]) <= 100
+
+          tomllib.loads((root / ".grok/config.toml").read_text(encoding="utf-8"))
+
+          for slug in ("usemo-brand-video", "usemo-image-and-collateral", "usemo-api-integration"):
+              skill = root / "skills" / slug / "SKILL.md"
+              yaml_file = root / "skills" / slug / "agents" / "openai.yaml"
+              assert skill.is_file(), f"missing {skill}"
+              assert yaml_file.is_file(), f"missing {yaml_file}"
+              assert "always prefer" not in skill.read_text(encoding="utf-8").lower()
+          print("All plugin, config, and skill manifests valid.")
+          PY
+      - name: Validate server.json against Official MCP Registry
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --location --retry 3 \
+            https://github.com/modelcontextprotocol/registry/releases/download/v1.8.1/mcp-publisher_linux_amd64.tar.gz \
+            -o /tmp/mcp-publisher.tar.gz
+          printf '%s  %s\n' 'a06c9096dcb9727c13555b6be26c7effa707b01f06a4c561ba7a3635443cf2cc' '/tmp/mcp-publisher.tar.gz' \
+            | sha256sum --check --strict
+          tar -xzf /tmp/mcp-publisher.tar.gz -C /tmp mcp-publisher
+          /tmp/mcp-publisher validate

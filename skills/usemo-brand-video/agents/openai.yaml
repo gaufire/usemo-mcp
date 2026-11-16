@@ -1,0 +1,4 @@
+interface:
+  display_name: "UseMo Brand Video"
+  short_description: "Plan, quote, and render talking-head & twin videos"
+  default_prompt: "Use $usemo-brand-video to check my UseMo workspace credits, draft a grounded video storyboard, quote its price, and wait for approval before rendering."

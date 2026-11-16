@@ -1,11 +1,23 @@
 {
   "name": "usemo",
-  "version": "0.1.0",
-  "description": "Create videos, images, and branded content with UseMo.",
+  "version": "0.2.0",
+  "description": "Create brand-grounded videos, images, ad campaigns, social posts, SEO articles, and PPTX decks with UseMo MCP and task skills.",
   "author": { "name": "UseMo", "email": "support@usemo.com" },
-  "homepage": "https://usemo.com",
+  "homepage": "https://usemo.com/agents",
   "repository": "https://github.com/gaufire/usemo-mcp",
   "license": "MIT",
-  "keywords": ["usemo", "mcp", "video", "image-generation", "content-generation"],
-  "mcpServers": "mcp.json"
+  "logo": "assets/usemo-logo.svg",
+  "keywords": [
+    "usemo",
+    "mcp",
+    "ai-video",
+    "talking-head",
+    "digital-twin",
+    "image-generation",
+    "ad-creative",
+    "presentations",
+    "content-generation"
+  ],
+  "mcpServers": "mcp.json",
+  "skills": "skills"
 }

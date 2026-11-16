@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "usemo": {
+      "command": "npx",
+      "args": ["--yes", "--package", "@usemo.com/sdk@0.1.0", "usemo-mcp"],
+      "env": {
+        "USEMO_PROFILE": "work"
+      }
+    }
+  }
+}

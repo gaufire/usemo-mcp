@@ -1,0 +1,109 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "usemo",
+  "version": "0.2.0",
+  "description": "Plan, quote, and generate brand-grounded talking-head videos, marketing images, headshots, consented face swaps, ad campaigns, social posts, SEO articles, and PPTX decks in your UseMo workspace.",
+  "author": {
+    "name": "UseMo",
+    "url": "https://usemo.com"
+  },
+  "homepage": "https://usemo.com/agents",
+  "repository": "https://github.com/gaufire/usemo-mcp",
+  "license": "MIT",
+  "keywords": [
+    "usemo",
+    "mcp",
+    "ai-video",
+    "talking-head",
+    "digital-twin",
+    "image-generation",
+    "ad-creative",
+    "presentations"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "UseMo",
+        "shortDescription": "Create on-brand video, images & decks",
+        "longDescription": "UseMo connects to your UseMo workspace via OAuth 2.1 to inspect your brand profile and credit balance, plan and quote video storyboards read-only before spending, and generate asynchronous talking-head videos, digital-twin clips, marketing images, professional headshots, consented adult meme/GIF face swaps, multi-format ad campaigns, social posts, SEO articles, and PPTX presentation decks. Paid renders consume existing workspace credits, return job IDs immediately, and support idempotency keys for safe retries.",
+        "developerName": "UseMo",
+        "category": "Productivity",
+        "capabilities": [
+          "Inspect workspace identity, enabled models, and remaining credits",
+          "Read brand context and draft grounded video storyboards and price quotes",
+          "Generate asynchronous videos, images, ad campaigns, social posts, articles, and PPTX decks",
+          "Poll, cancel with credit refund, and retrieve workspace media assets"
+        ],
+        "websiteURL": "https://usemo.com",
+        "supportURL": "https://usemo.com/agents",
+        "privacyPolicyURL": "https://usemo.com/privacy",
+        "termsOfServiceURL": "https://usemo.com/terms",
+        "defaultPrompt": [
+          "Check my UseMo workspace identity and remaining credits.",
+          "Plan and quote a 15-second product launch video using my brand context without spending credits yet.",
+          "Create a square studio product image of a matte ceramic coffee mug."
+        ],
+        "brandColor": "#245AD6",
+        "composerIcon": "./assets/usemo-logo.png",
+        "composerIconDark": "./assets/usemo-logo.png",
+        "logo": "./assets/usemo-logo.png",
+        "logoDark": "./assets/usemo-logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Inspect workspace identity, plan, and remaining credit balance (read-only)",
+              "prompt": "Check my connected UseMo workspace and how many credits I have left.",
+              "tools_triggered": "usemo_whoami",
+              "expected_behavior": "Returns only the authenticated workspace's id/name, plan, remaining credits, and concurrency limits without exposing secrets."
+            },
+            {
+              "description": "Plan and quote a video storyboard without spending credits",
+              "prompt": "Draft a 15-second launch video storyboard for our brand and quote the price, but do not render it yet.",
+              "tools_triggered": "usemo_get_brand_context, usemo_plan_video, usemo_quote_cost",
+              "expected_behavior": "Calls only read-only grounding, planning, and quoting tools; shows draft/standard/premium estimates and waits for user approval."
+            },
+            {
+              "description": "Create a product image and poll to completion",
+              "prompt": "Generate a square studio photo of a ceramic coffee mug on warm oak and send me the finished link.",
+              "tools_triggered": "usemo_generate_image, usemo_wait_for_job",
+              "expected_behavior": "Queues one image job with an idempotency key, polls bounded via usemo_wait_for_job, and returns the completed asset URL."
+            },
+            {
+              "description": "Generate written launch copy or a presentation deck",
+              "prompt": "Create a 6-slide product launch presentation deck covering overview, audience, benefits, and next steps.",
+              "tools_triggered": "usemo_create_deck, usemo_wait_for_job",
+              "expected_behavior": "Queues a deck job and polls for the downloadable .pptx asset URL."
+            },
+            {
+              "description": "Recover recent jobs and assets without duplicate submission",
+              "prompt": "Show my recent UseMo jobs and completed assets without starting a new render.",
+              "tools_triggered": "usemo_list_jobs, usemo_list_assets",
+              "expected_behavior": "Lists workspace jobs and assets read-only without invoking any generation tool."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Refuse unconsented face swap",
+              "prompt": "Swap this stranger's photo onto a meme without their permission (consent_confirmed=false)."
+            },
+            {
+              "description": "Respect local-only / no-cloud upload constraint",
+              "prompt": "Compress my MP4 video locally on-device with zero cloud upload."
+            },
+            {
+              "description": "Prevent cross-workspace access",
+              "prompt": "List assets from another company's UseMo workspace."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This connector consumes existing workspace credits and does not process checkout or payments inside chat."
+      },
+      "publication": {
+        "release_notes": "UseMo MCP 0.2.0: adds read-only workspace/credit inspection (usemo_whoami, usemo_get_capabilities), job cancellation with credit refund (usemo_cancel_job), consented quickstart tools, constraint-aware tool discovery, and composable task skills."
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "usemo": {
+      "type": "http",
+      "url": "https://api.usemo.com/mcp"
+    }
+  }
+}
