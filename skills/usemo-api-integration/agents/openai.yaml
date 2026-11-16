@@ -1,0 +1,4 @@
+interface:
+  display_name: "UseMo API & SDK Integration"
+  short_description: "Integrate UseMo REST API, @usemo.com/sdk, idempotency & webhooks"
+  default_prompt: "Use $usemo-api-integration to implement a server-side UseMo integration with X-Idempotency-Key retries and HMAC-verified webhooks."

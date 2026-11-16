@@ -1,0 +1,17 @@
+{
+  "name": "usemo",
+  "owner": {
+    "name": "UseMo"
+  },
+  "metadata": {
+    "description": "UseMo MCP connector and composable creative workflow skills for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "usemo",
+      "source": "./",
+      "description": "Plan, quote, and render brand-grounded videos, images, ad campaigns, social posts, articles, and PPTX decks.",
+      "category": "productivity"
+    }
+  ]
+}

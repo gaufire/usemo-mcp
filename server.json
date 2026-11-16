@@ -2,9 +2,9 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.gaufire/usemo-mcp",
   "title": "UseMo",
-  "description": "Create videos, images, and branded content using your UseMo workspace and credits.",
-  "version": "0.1.0",
-  "websiteUrl": "https://usemo.com",
+  "description": "Create brand-grounded videos, images, ad campaigns, social posts, and decks with UseMo.",
+  "version": "0.2.0",
+  "websiteUrl": "https://usemo.com/agents",
   "repository": {
     "url": "https://github.com/gaufire/usemo-mcp",
     "source": "github"

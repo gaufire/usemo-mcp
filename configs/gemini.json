@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "usemo": {
+      "httpUrl": "https://api.usemo.com/mcp"
+    }
+  }
+}

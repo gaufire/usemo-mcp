@@ -1,0 +1,4 @@
+interface:
+  display_name: "UseMo Image & Collateral"
+  short_description: "Generate on-brand images, headshots, ads, posts & PPTX decks"
+  default_prompt: "Use $usemo-image-and-collateral to verify my UseMo workspace capabilities and generate on-brand marketing visuals or a presentation deck."
