@@ -3,7 +3,7 @@
   "name": "io.github.gaufire/usemo-mcp",
   "title": "UseMo",
   "description": "Create talking-head videos, AI avatars, product photos, headshots, ad creatives, and face swaps.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "websiteUrl": "https://usemo.com/agents",
   "repository": {
     "url": "https://github.com/gaufire/usemo-mcp",
