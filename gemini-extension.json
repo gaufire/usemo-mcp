@@ -1,6 +1,6 @@
 {
   "name": "usemo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Create brand-grounded videos, images, ad campaigns, social posts, articles, and PPTX decks through UseMo OAuth MCP.",
   "mcpServers": {
     "usemo": {

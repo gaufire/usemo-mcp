@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "usemo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Create talking-head & AI avatar videos, studio product photos, corporate headshots, multi-format ad creatives (Instagram, Stories, YouTube, LinkedIn), consented GIF/meme face swaps, social posts, and SEO articles in your UseMo workspace.",
   "author": {
     "name": "UseMo",
